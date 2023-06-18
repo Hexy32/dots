@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+body {
+  overflow: hidden;
+}
+
 .square-one {
   border-radius: 0.7rem;
   position: absolute;
