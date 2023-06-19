@@ -5,12 +5,52 @@
 }
 
 body {
+  font-family: sans-serif;
   overflow: hidden;
 }
 
 .square-one {
   border-radius: 0.7rem;
   position: absolute;
+  border: none;
+  cursor: pointer;
 
-  transition: 1000ms left cubic-bezier(1, .05, .2, .77), 1000ms top cubic-bezier(.77, .2, .05, 1);
+  box-shadow: 0 0 30px 2px rgb(255, 102, 0);
+
+  transition: 2s left cubic-bezier(1, 0.05, 0.2, 0.77), 2s top cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.settings-btn {
+  background: none;
+  border: none;
+  color: white;
+
+  cursor: pointer;
+  text-decoration: underline;
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  z-index: 6;
+  padding: 2rem 0 0 2rem;
+}
+
+.menu {
+  z-index: 5;
+
+  background-color: #00000023;
+  color: white;
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  height: 100vh;
+  padding: 2rem;
+
+  padding-top: 4rem;
+
+  backdrop-filter: blur(30px);
 }
