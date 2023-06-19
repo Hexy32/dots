@@ -9,6 +9,7 @@ import { random } from './utils/random'
 
 function App() {
   const [objectArr, setObjectArr] = useState<GameObject[]>(createDefaultObjects(200))
+  const [autoMove, setAutoMove] = useState(false)
   const timeoutRef = useRef<number>()
 
   function createDefaultObjects(objectCount: number) {
@@ -32,6 +33,8 @@ function App() {
     let i = 0
 
     function clickOne() {
+      if (!autoMove) return
+
       const newObjectArr = [...objectArr]
       newObjectArr[i].location = {
         x: random(0, window.innerWidth - OBJECT_SIZE),
@@ -55,11 +58,13 @@ function App() {
     clickOne()
 
     return () => clearTimeout(timeoutRef.current)
-  }, [])
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoMove])
 
   return (
     <>
-      <Menu />
+      <Menu autoMove={autoMove} setAutoMove={setAutoMove} />
       <GameScreen objectArr={objectArr} setObjectArr={setObjectArr} />
     </>
   )

@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 
-export default function Menu() {
+export default function Menu({
+  autoMove,
+  setAutoMove,
+}: {
+  autoMove: boolean
+  setAutoMove: React.Dispatch<React.SetStateAction<boolean>>
+}) {
   const [isOpen, setIsOpen] = useState(false)
   const wrapperRef = useRef(null)
   const buttonRef = useRef(null)
@@ -32,7 +38,12 @@ export default function Menu() {
       {isOpen && (
         <div className="menu" ref={wrapperRef}>
           <div>
-            <input type="checkbox" id="Moving" />
+            <input
+              onChange={e => setAutoMove(e.currentTarget.checked)}
+              type="checkbox"
+              id="Moving"
+              defaultChecked={autoMove}
+            />
             <label htmlFor="Moving">Auto moving</label>
           </div>
         </div>
