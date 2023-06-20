@@ -54,3 +54,17 @@ body {
 
   backdrop-filter: blur(30px);
 }
+
+.mouse-hitbox {
+  border-radius: 100vh;
+  aspect-ratio: 1;
+  position: absolute;
+
+  transform: translateX(-50%) translateY(-50%);
+
+  background: #ffffff11;
+  filter: blur(5rem);
+
+  pointer-events: none;
+  z-index: -10;
+}

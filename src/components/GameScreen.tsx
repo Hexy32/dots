@@ -19,6 +19,7 @@ export default function GameScreen({ objectArr, setObjectArr }: MainGameInterfac
             setObjectArr(newObjectArr)
           }}
           key={i}
+          id={'dot ' + i}
           className={gameObject.className}
           style={{
             width: OBJECT_SIZE,

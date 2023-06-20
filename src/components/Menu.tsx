@@ -3,9 +3,13 @@ import { useEffect, useRef, useState } from 'react'
 export default function Menu({
   autoMove,
   setAutoMove,
+  runFromMouse,
+  setRunFromMouse,
 }: {
   autoMove: boolean
   setAutoMove: React.Dispatch<React.SetStateAction<boolean>>
+  runFromMouse: boolean
+  setRunFromMouse: React.Dispatch<React.SetStateAction<boolean>>
 }) {
   const [isOpen, setIsOpen] = useState(false)
   const wrapperRef = useRef(null)
@@ -45,6 +49,15 @@ export default function Menu({
               defaultChecked={autoMove}
             />
             <label htmlFor="Moving">Auto moving</label>
+          </div>
+          <div>
+            <input
+              onChange={e => setRunFromMouse(e.currentTarget.checked)}
+              type="checkbox"
+              id="Run"
+              defaultChecked={runFromMouse}
+            />
+            <label htmlFor="Run">Run from mouse</label>
           </div>
         </div>
       )}
